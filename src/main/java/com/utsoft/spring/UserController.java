@@ -32,4 +32,17 @@ public class UserController {
     }
     // 就要出错了、就跳转到自己定义的一个错误页面去。
 
+
+    // 捕获 到这个错误时、就单独的跳转到一个错误页面的
+    @GetMapping("exception2Ko")
+    public String exception3() throws IllegalAccessException {
+        throw new IllegalAccessException("kobe");
+    }
+
+
+    // 捕获空指针错误。
+    @GetMapping("empty")
+    public String empty(){
+        throw new NullPointerException("null kobe");
+    }
 }

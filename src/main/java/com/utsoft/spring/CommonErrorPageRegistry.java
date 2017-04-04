@@ -4,7 +4,6 @@ import org.springframework.boot.web.servlet.ErrorPage;
 import org.springframework.boot.web.servlet.ErrorPageRegistrar;
 import org.springframework.boot.web.servlet.ErrorPageRegistry;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Component;
 
 /**
  * <br />日期：2017/4/4
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Component;
  * <br />描述：
  * Controller 出错了、跳转自定义的页面去。
  */
-@Component
+//@Component
 public class CommonErrorPageRegistry implements ErrorPageRegistrar {
 
 
@@ -22,6 +21,7 @@ public class CommonErrorPageRegistry implements ErrorPageRegistrar {
         // 404错误、就跳转到这个页面去。
         ErrorPage e404 = new ErrorPage(HttpStatus.NOT_FOUND,"/error404.html");
         ErrorPage e500 = new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR,"/error500.html");
-        registry.addErrorPages(e404,e500);
+        ErrorPage error01 = new ErrorPage(IllegalAccessException.class,"/error1.html");
+        registry.addErrorPages(e404,e500,error01);
     }
 }
