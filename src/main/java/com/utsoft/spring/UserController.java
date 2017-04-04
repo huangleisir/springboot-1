@@ -23,4 +23,13 @@ public class UserController {
         return "user home";
     }
 
+
+
+    // springboot 异常处理。  访问它就会抛一个异常出来。500错误与 404 错误。
+    @GetMapping("exception2")
+    public String exception2() throws IllegalAccessException {
+        throw new IllegalAccessException("springboot 异常处理。");
+    }
+    // 就要出错了、就跳转到自己定义的一个错误页面去。
+
 }
